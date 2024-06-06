@@ -8,6 +8,7 @@ from math import ceil
 def generate_prior_box(feature_maps, image_size, steps, min_sizes):
     n_anchors = 0
     for x in feature_maps:
+        x = x.astype(np.int32)
         n_anchors += x[0] * x[1] * len(min_sizes[0])
     anchors = np.empty((n_anchors*4), dtype=np.float32)
 #    print(feature_maps, image_size, steps, min_sizes)
