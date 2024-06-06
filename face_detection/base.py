@@ -118,8 +118,6 @@ class Detector(ABC):
         image = torch.from_numpy(image)
         image = self.resize(image, shrink)
         image = image.to(self.device)
-
-        image = image.to(self.device)
         return image
 
     def _batched_detect(self, image: np.ndarray) -> typing.List[np.ndarray]:
